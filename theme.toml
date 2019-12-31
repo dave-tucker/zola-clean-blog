@@ -18,6 +18,14 @@ clean_blog_menu = [
     {url = "$BASE_URL/about", name = "About"}
 ]
 
+# Change the image displayed on each page.
+# This should reference a file in the static directory.
+# For example, "img/about-bg.jpg"
+clean_blog_about_image = ""
+clean_blog_contact_image = ""
+clean_blog_home_image = ""
+clean_blog_post_image = ""
+
 # The theme author info: you!
 [author]
 name = "Dave Tucker"

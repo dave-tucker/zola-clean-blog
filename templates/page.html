@@ -2,7 +2,8 @@
 
 {% block header %}
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('{{ get_url(path="img/post-bg.jpg") }}')">
+<header class="masthead"
+  style="background-image: url('{{ config.extra.clean_blog_post_image | default(value="$BASE_URL/img/post-bg.jpg") | replace(from="$BASE_URL", to=config.base_url) | safe }}')">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
