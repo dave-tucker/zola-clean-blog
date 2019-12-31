@@ -24,6 +24,15 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         {{ page.content | safe }}
+        {% if page.taxonomies.tags %}
+        <div class="post-tags">
+          <p>Tags:
+            {% for tag in page.taxonomies.tags %}
+            <a href="{{ get_taxonomy_url(kind="tags", name=tag) }}">#{{ tag }}</a>
+            {% endfor %}
+          </p>
+        </div>
+        {% endif %}
       </div>
     </div>
   </div>
