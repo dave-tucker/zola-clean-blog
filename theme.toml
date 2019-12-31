@@ -5,12 +5,13 @@ homepage = "https://github.com/dave-tucker/zola-clean-blog"
 # The minimum version of Zola required
 min_version = "0.4.0"
 # An optional live demo URL
-demo = ""
+demo = "https://zola-clean-blog.netlify.com/"
 
 [extra]
 author = "Dave"
-twitter_id = "dave_tucker"
-github_id = "dave-tucker"
+twitter_id = ""
+github_id = ""
+linkedin_profile_url = ""
 
 clean_blog_menu = [
     {url = "$BASE_URL", name = "Home"},
