@@ -1,0 +1,23 @@
+# The URL the site will be built for
+base_url = "https://zola-clean-blog.netlify.com"
+
+compile_sass = true
+title = "Start Bootstrap"
+description = ""
+highlight_code = true
+
+taxonomies = [
+    {name = "categories", rss = true, paginate_by=5},
+    {name = "tags", rss = true, paginate_by=5},
+]
+
+[extra]
+author = "Dave"
+twitter_id = ""
+github_id = ""
+linkedin_profile_url = ""
+clean_blog_menu = [
+    {url = "$BASE_URL", name = "Home"},
+    {url = "$BASE_URL/about", name = "About"},
+    {url = "$BASE_URL/contact", name = "Contact"}
+]

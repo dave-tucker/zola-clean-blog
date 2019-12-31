@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block title %}{{ config.title }} - Tags{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <ul>
+                {% for tag in terms %}
+                <li><a href="{{ tag.permalink }}">{{ tag.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock content %}

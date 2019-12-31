@@ -1,0 +1,30 @@
+name = "Clean Blog"
+description = "A port of Start Bootstrap Clean Blog for Zola"
+license = "MIT"
+homepage = "https://github.com/dave-tucker/zola-clean-blog"
+# The minimum version of Zola required
+min_version = "0.4.0"
+# An optional live demo URL
+demo = ""
+
+[extra]
+author = "Dave"
+twitter_id = "dave_tucker"
+github_id = "dave-tucker"
+
+clean_blog_menu = [
+    {url = "$BASE_URL", name = "Home"},
+    {url = "$BASE_URL/about", name = "About"}
+]
+
+# The theme author info: you!
+[author]
+name = "Dave Tucker"
+homepage = "https://dtucker.co.uk"
+
+# If this is porting a theme from another static site engine, provide
+# the info of the original author here
+[original]
+author =  "Start Bootstrap"
+homepage = "https://startbootstrap.com/themes/clean-blog/"
+repo = "https://github.com/BlackrockDigital/startbootstrap-clean-blog"
