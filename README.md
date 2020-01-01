@@ -48,9 +48,9 @@ Copyright %copy; Example, Inc. 2016-2019
 - To add Google Analytics, you may add your script to the `extrascripts` block using your own `index.html`
 ```
 {% extends "themes/zola-clean-blog/templates/index.html" %}
-{% block extrascripts %}
+{% block analytics %}
 <script>
 ...
 </script>
-{% endblock extrascripts %}
+{% endblock analytics %}
 ```
