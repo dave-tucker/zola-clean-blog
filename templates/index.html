@@ -54,15 +54,15 @@
 
   <!-- Page Header -->
   {% block header %}
-  <header class="masthead"
-    style="background-image: url('{{ config.extra.clean_blog_home_image | default(value="$BASE_URL/img/home-bg.jpg") | replace(from="$BASE_URL", to=config.base_url) | safe }}')">
-    <div class="overlay"></div>
+  <header class="masthead" style="background-image: url('{{ get_url(path="/img/home-bg.jpg")}}')">
+    <div class="overlay">
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>Clean Blog</h1>
-            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+            <h1>{{config.title}}</h1>
+            <span class="subheading">{{config.description}}</span>
           </div>
         </div>
       </div>
@@ -107,38 +107,19 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <ul class="list-inline text-center">
-            {% if config.extra.twitter_id %}
+            {% for item in config.extra.clean_blog_social %}
             <li class="list-inline-item">
-              <a href="https://twitter.com/{{config.extra.twitter_id}}">
+              <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  <i class="{{ item.icon }} fa-stack-1x fa-inverse"></i>
                 </span>
               </a>
             </li>
-            {% endif %}
-            {% if config.extra.linkedin_profile_url %}
-            <li class="list-inline-item">
-              <a href="{{config.extra.linkedin_profile_url}}">
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            {% endif %}
-            {% if config.extra.github_id %}
-            <li class="list-inline-item">
-              <a href="https://github.com/{{config.extra.github_id}}">
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            {% endif %}
+            {% endfor %}
           </ul>
-          <p class="copyright text-muted">Copyright &copy; Your Website 2019</p>
+          <p class="copyright text-muted">{% block copyright %}Copyright &copy; Your Website
+            2019{% endblock copyright %}</p>
         </div>
       </div>
     </div>
@@ -151,6 +132,9 @@
   <!--Custom scripts for this template-->
   <script src="{{ get_url(path="js/clean-blog.min.js") }}"></script>
 
+  <!--- Additional scripts -->
+  {% block extrascripts %}
+  {% endblock extrasripts %}
 </body>
 
 </html>

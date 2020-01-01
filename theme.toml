@@ -9,22 +9,17 @@ demo = "https://zola-clean-blog.netlify.com/"
 
 [extra]
 author = "Dave"
-twitter_id = ""
-github_id = ""
-linkedin_profile_url = ""
 
+# Add menu links. $BASE_URL wil be expanded
 clean_blog_menu = [
     {url = "$BASE_URL", name = "Home"},
     {url = "$BASE_URL/about", name = "About"}
 ]
 
-# Change the image displayed on each page.
-# This should reference a file in the static directory.
-# For example, "img/about-bg.jpg"
-clean_blog_about_image = ""
-clean_blog_contact_image = ""
-clean_blog_home_image = ""
-clean_blog_post_image = ""
+# Add social links. $BASE_URL wil be expanded
+clean_blog_social = [
+    {url = "$BASE_URL/rss.xml", icon="fas fa-rss"}
+]
 
 # The theme author info: you!
 [author]

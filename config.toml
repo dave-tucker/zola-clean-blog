@@ -1,9 +1,10 @@
 # The URL the site will be built for
 base_url = "https://zola-clean-blog.netlify.com"
-
+generate_rss = true
 compile_sass = true
+
 title = "Start Bootstrap"
-description = ""
+description = "A blog theme by Start Bootstrap"
 highlight_code = true
 
 taxonomies = [
@@ -13,10 +14,12 @@ taxonomies = [
 
 [extra]
 author = "Dave"
-twitter_id = "dave_tucker"
-github_id = "dave-tucker"
-linkedin_profile_url = ""
 clean_blog_menu = [
     {url = "$BASE_URL", name = "Home"},
-    {url = "$BASE_URL/about", name = "About"}
+    {url = "$BASE_URL/about", name = "About"},
+    {url = "$BASE_URL/contact", name = "Contact"}
+]
+clean_blog_social = [
+    {url = "https://twitter.com", icon="fab fa-twitter"},
+    {url = "$BASE_URL/rss.xml", icon="fas fa-rss"}
 ]
