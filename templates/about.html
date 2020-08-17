@@ -9,8 +9,19 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="page-heading">
-          <h1>About Me</h1>
-          <span class="subheading">This is what I do.</span>
+          {% if page.title %}
+            {% set about_title = page.title %}
+          {% else %}
+            {% set about_title = "About Me" %}
+          {% endif %}
+          <h1>{{ about_title }}</h1>
+
+          {% if page.extra.about_subhead %}
+            {% set about_subhead = page.extra.about_subhead %}
+          {% else %}
+            {% set about_subhead = "This is what I do..." %}
+          {% endif %}
+          <span class="subheading">{{ about_subhead }}</span>
         </div>
       </div>
     </div>
