@@ -1,4 +1,6 @@
+
 {% import "post_macros.html" as post_macros %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +57,14 @@
 
   <!-- Page Header -->
   {% block header %}
-  <header class="masthead" style="background-image: url('{{ get_url(path="/img/home-bg.jpg")}}')">
+  {% set bg_img_default = "/img/home-bg.jpg" %}
+  {% if not page.extra.bg_img %}
+      <!-- if front matter doesn't set it -->
+      {% set bg_img = bg_img_default %}
+  {% else %}
+      {% set bg_img = page.extra.bg_img %}
+  {% endif %}
+  <header class="masthead" style="background-image: url('{{ get_url(path=bg_img)}}')">
     <div class="overlay">
     </div>
     <div class="container">

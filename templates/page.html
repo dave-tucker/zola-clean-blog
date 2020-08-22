@@ -1,8 +1,15 @@
 {% extends "index.html" %}
 
 {% block header %}
+{% set bg_img_default = "/img/post-bg.jpg" %}
+{% if not page.extra.bg_img %}
+    <!-- if front matter doesn't set it -->
+    {% set bg_img = bg_img_default %}
+{% else %}
+    {% set bg_img = page.extra.bg_img %}
+{% endif %}
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('{{ get_url(path="/img/post-bg.jpg")}}')">
+<header class="masthead" style="background-image: url('{{ get_url(path=bg_img)}}')">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
