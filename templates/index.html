@@ -80,11 +80,11 @@
   </header>
   {% endblock header %}
 
+  <div class="container">
   {% block content %}
   <!-- Main Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+    <div class="container-main">
+      <div class="mx-auto">
         <div class="posts">
           {% for page in paginator.pages %}
           <div class="post-preview">
@@ -107,16 +107,30 @@
 
       </div>
     </div>
-  </div>
   {% endblock content %}
 
-  <hr>
+  {%- block sidebar %}
+    <div class="container-sidebar">
+        {%- for sidebar in config.extra.sidebar %}
+            <h3>{{ sidebar.name }}</h3>
+            <ul class="sidebar-list">
+                {%- for item in sidebar.urls %}
+                    <li>
+                        <a href="{{item.url}}">{{item.name}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {%- endfor %}
+    </div>
+  {% endblock sidebar %}
+  </div>
+  <!-- <hr> -->
 
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="container-main">
+        <div class="col-md-10 mx-auto">
           <ul class="list-inline text-center">
             {% for item in config.extra.clean_blog_social %}
             <li class="list-inline-item">

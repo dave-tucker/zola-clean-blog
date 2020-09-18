@@ -12,8 +12,8 @@
   <div class="overlay">
   </div>
   <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+    <div class="container-main">
+      <div class="mx-auto">
         <div class="page-heading">
           {% if page.title %}
             {% set about_title = page.title %}
@@ -38,10 +38,14 @@
 {% block content %}
 <!-- Main Content -->
 <div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
+  <div class="container-main">
+    <div class="mx-auto">
       {{ page.content | safe }}
     </div>
   </div>
 </div>
 {% endblock content %}
+
+{# don't show the sidebar on about pages #}
+{% block sidebar %}
+{% endblock sidebar %}

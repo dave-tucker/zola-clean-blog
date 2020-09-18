@@ -54,3 +54,19 @@ Copyright %copy; Example, Inc. 2016-2019
 </script>
 {% endblock analytics %}
 ```
+
+## Sidebar automatic links
+
+Merged a little bit of Sidebar formatting from the Dinkleberg theme. To add
+sidebar entries add this to the config in the '[extra]' section
+
+```
+sidebar = [
+    {name = "Social", urls=[
+        {name="Github", url="https://github.com"},
+    ]},
+    {name = "Hello World", urls=[
+        {name="Hi", url="https://pages.github.com"}
+    ]}
+]
+```
