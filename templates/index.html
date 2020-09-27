@@ -1,4 +1,6 @@
+
 {% import "post_macros.html" as post_macros %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +57,14 @@
 
   <!-- Page Header -->
   {% block header %}
-  <header class="masthead" style="background-image: url('{{ get_url(path="/img/home-bg.jpg")}}')">
+  {% set bg_img_default = "/img/home-bg.jpg" %}
+  {% if not page.extra.bg_img %}
+      <!-- if front matter doesn't set it -->
+      {% set bg_img = bg_img_default %}
+  {% else %}
+      {% set bg_img = page.extra.bg_img %}
+  {% endif %}
+  <header class="masthead" style="background-image: url('{{ get_url(path=bg_img)}}')">
     <div class="overlay">
     </div>
     <div class="container">
@@ -71,16 +80,17 @@
   </header>
   {% endblock header %}
 
+  <div class="container">
   {% block content %}
   <!-- Main Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+    <div class="container-main">
+      <div class="mx-auto">
         <div class="posts">
           {% for page in paginator.pages %}
           <div class="post-preview">
             {{ post_macros::page_title(page=page) }}
-            <p class="post-summary">{{ page.summary | safe }}</p>
+              <p class="post-summary">{{ page.summary | safe }}</p>
+              <i class="float-right"><a href="{{ page.permalink }}">More Info</a></i><br/>
           </div>
           {% endfor %}
         </div>
@@ -97,16 +107,30 @@
 
       </div>
     </div>
-  </div>
   {% endblock content %}
 
-  <hr>
+  {%- block sidebar %}
+    <div class="container-sidebar">
+        {%- for sidebar in config.extra.sidebar %}
+            <h3>{{ sidebar.name }}</h3>
+            <ul class="sidebar-list">
+                {%- for item in sidebar.urls %}
+                    <li>
+                        <a href="{{item.url}}">{{item.name}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {%- endfor %}
+    </div>
+  {% endblock sidebar %}
+  </div>
+  <!-- <hr> -->
 
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="container-main">
+        <div class="col-md-10 mx-auto">
           <ul class="list-inline text-center">
             {% for item in config.extra.clean_blog_social %}
             <li class="list-inline-item">

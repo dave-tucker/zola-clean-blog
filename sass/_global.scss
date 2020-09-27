@@ -24,7 +24,7 @@ h6 {
 }
 
 a {
-  color: $gray-900;
+  color: $color-link;
   @include transition-all;
   &:focus,
   &:hover {
@@ -52,6 +52,18 @@ blockquote {
   text-align: center;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
+}
+.container {
+  max-width: 1024px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-main {
+    flex: 2 1;
+    padding: 10px;
+    /*width: 95%;*/
+    /*border: 2px solid red;*/
 }
 
 ::-moz-selection {

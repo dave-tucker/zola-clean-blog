@@ -1,0 +1,34 @@
+
+.container-sidebar {
+    /*width: 35%;*/
+    /*display: none;*/
+    flex: 0 0 800px;
+
+    @media screen and (min-width: 900px) {
+        /*width: 30%;*/
+        /*display: block;*/
+        flex: 1 1;
+        /*width: 400px;*/
+    }
+
+    h3 {
+        margin: 0 0 5px;
+        padding: 0 5px 5px;
+        color: $black;
+        border-bottom: 1px solid $gray-200;
+    }
+}
+
+.sidebar-list {
+    list-style: none;
+    padding: 0 15px;
+
+    & > li > a {
+        text-decoration: none;
+        color: $color-link;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+}

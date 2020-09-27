@@ -2,15 +2,32 @@
 
 {% block header %}
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('{{ get_url(path="/img/about-bg.jpg")}}')">
+{% if not page.extra.bg_img %}
+    <!-- if front matter doesn't set it -->
+    {% set bg_img = "/img/about-bg.jpg" %}
+{% else %}
+    {% set bg_img = page.extra.bg_img %}
+{% endif %}
+<header class="masthead" style="background-image: url('{{ get_url(path=bg_img)}}')">
   <div class="overlay">
   </div>
   <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+    <div class="container-main">
+      <div class="mx-auto">
         <div class="page-heading">
-          <h1>About Me</h1>
-          <span class="subheading">This is what I do.</span>
+          {% if page.title %}
+            {% set about_title = page.title %}
+          {% else %}
+            {% set about_title = "About Me" %}
+          {% endif %}
+          <h1>{{ about_title }}</h1>
+
+          {% if page.extra.about_subhead %}
+            {% set about_subhead = page.extra.about_subhead %}
+          {% else %}
+            {% set about_subhead = "This is what I do..." %}
+          {% endif %}
+          <span class="subheading">{{ about_subhead }}</span>
         </div>
       </div>
     </div>
@@ -21,10 +38,14 @@
 {% block content %}
 <!-- Main Content -->
 <div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
+  <div class="container-main">
+    <div class="mx-auto">
       {{ page.content | safe }}
     </div>
   </div>
 </div>
 {% endblock content %}
+
+{# don't show the sidebar on about pages #}
+{% block sidebar %}
+{% endblock sidebar %}
