@@ -35,7 +35,7 @@ taxonomies = [
 
 - To replace the copyright field, create your own `templates/index.html` to extend the template and add a `copyright` block:
 ```
-{% extends "themes/zola-clean-blog/templates/index.html" %}
+{% extends "zola-clean-blog/templates/index.html" %}
 {% block copyright %}
 Copyright %copy; Example, Inc. 2016-2019
 {% endblock copyright %}
@@ -47,7 +47,7 @@ Copyright %copy; Example, Inc. 2016-2019
 
 - To add Google Analytics, you may add your script to the `extrascripts` block using your own `index.html`
 ```
-{% extends "themes/zola-clean-blog/templates/index.html" %}
+{% extends "zola-clean-blog/templates/index.html" %}
 {% block analytics %}
 <script>
 ...
