@@ -5,7 +5,7 @@ homepage = "https://github.com/dave-tucker/zola-clean-blog"
 # The minimum version of Zola required
 min_version = "0.4.0"
 # An optional live demo URL
-demo = "https://zola-clean-blog.netlify.com/"
+demo = "https://zola-clean-blog.netlify.app/"
 
 [extra]
 author = "Dave"
